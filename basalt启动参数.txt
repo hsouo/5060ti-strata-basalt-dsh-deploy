@@ -1,0 +1,25 @@
+(& "C:\ProgramData\anaconda3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | Invoke-Expression
+conda activate basalt
+$env:Path = "C:\ProgramData\anaconda3\envs\basalt\Library\bin;$env:Path"
+cd "C:\Users\hs-desktop\Downloads\basalt-v0.4.1-windows-x64"
+cmd.exe /c start /affinity 0xFF5555 /wait .\bin\basalt.exe serve `
+  ".\Qwen3.8-FN-NVFP4-DQ8.basalt" `
+  --gpu 0 `
+  --host 127.0.0.1 `
+  --port 18511 `
+  --max-context 524288 `
+  --rope-scaling yarn `
+  --rope-scale 2 `
+  --kv int8 `
+  --kv-resident 20480 `
+  --parallel 1 `
+  --vision cpu `
+  --expert-cache auto `
+  --resident-experts `
+  --resident-budget-gib 56 `
+  --ram-reserve-mib 1024 `
+  --vram-reserve-mib 512 `
+  --prefill auto `
+  --spec 4 `
+  --suffix-draft 0 `
+  --pool-workers 14

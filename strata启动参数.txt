@@ -1,0 +1,26 @@
+$modelDir = "C:\Users\hs-desktop\Documents\Strata\Models\Qwen3.8-Flash-Next-UD-IQ3_XXS"
+strata launch `
+  --model-path "$modelDir" `
+  --context 524288 `
+  --kv int8 `
+  --parallel 1 `
+  --mtp on `
+  --drafting mtp `
+  --vision cpu `
+  --access local `
+  --port 18510 `
+  --tune quick `
+  --retune `
+  --set rope-scaling=yarn `
+  --set rope-scale=2 `
+  --set prefill=8192 `
+  --set kv-resident=20480 `
+  --set vram-reserve-mib=768 `
+  --set ple-io=mmap `
+  --set spec=4 `
+  --set spec-min-p=0.7 `
+  --set STRATA_ROUTE_TAIL_SKIP=0 `
+  --set STRATA_ROUTE_PRIOR=0 `
+  --save-preset "Qwen38-16-512k" `
+  --yes `
+  --no-tui
