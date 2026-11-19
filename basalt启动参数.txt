@@ -14,12 +14,18 @@ cmd.exe /c start /affinity 0xFF5555 /wait .\bin\basalt.exe serve `
   --kv-resident 20480 `
   --parallel 1 `
   --vision cpu `
+  --fit-max-tokens `
   --expert-cache auto `
   --resident-experts `
   --resident-budget-gib 56 `
   --ram-reserve-mib 1024 `
   --vram-reserve-mib 512 `
   --prefill auto `
-  --spec 4 `
-  --suffix-draft 0 `
-  --pool-workers 14
+  --spec 8 `
+  --mtp-max-t 4 `
+  --suffix-draft 3 `
+  --prefill-cpu-share 0.5 `
+  --adapt-every 1 `
+  --adapt-swaps 64 `
+  --adapt-decay 0.85 `
+  --pool-workers 8
